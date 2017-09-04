@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Login</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="src/assets/css/main.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  	<script src="src/js/sweetalert.min.js"></script>
+  	<script>window.jQuery || document.write('<script src="src/js/jquery-2.2.0.min.js"><\/script>')</script>
+  	<script src="src/js/main.js"></script>
+
+</head>
+<body class="landing">
+	<div id="page-wrapper">
+		<header id="header" class="alt">
+			<nav id="nav">
+				<ul>
+					<li><a href="index.html"> Home </a></li>
+					<li>
+						<a href="#" class="icon fa-angle-down"> Layouts </a>
+						<ul>
+							<li>	<a href="generic.html"> Generic </a>	</li>
+							<li>	<a href="contact.html"> Contact </a>	</li>
+							<li>	<a href="elements.html"> Elements </a>	</li>
+							<li>
+								<a href="#"> Submenu </a>
+								<ul>
+									<li>	<a href="#"> Option One </a>	</li>
+									<li>	<a href="#"> Option Two </a>	</li>
+									<li>	<a href="#"> Option Three </a>	</li>
+									<li>	<a href="#"> Option Four </a>	</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="registro.html" class="button"> Registrarse </a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<section id="banner">
+			<section id="main" class="container 75%">
+				<div class="box">
+					<img src="src/assets/css/images/logo2.png" align="center" width="26%" height="26%">
+					
+					<h3 style="color: black">Inicia sesión con tu cuenta</h3>
+					<form action="controller/sesion/checkuser.php" enctype="multipart/form-data" method="POST">
+						<div class="row uniform 50%">
+							<div class="12u">
+								<input id="usuario" name="usuario" type="text" value="" placeholder="Usuario">
+							</div>
+						</div>
+						<div class="row uniform 50%">
+							<div class="12u">
+								<input id="password" name="password" type="password" value="" placeholder="Contraseña">
+							</div>
+						</div>
+						<div class="row uniform">
+							<div class="12u" style="text-align: left;" >
+								<ul class="actions">
+									<li>
+										<button class="button special" style="background: gray; ">Acceder</button>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</form>
+				</div>
+			</section>
+		</section>
+		
+		<footer id="footer">
+			<ul class="icons">
+				<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+				<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+				<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+				<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</footer>
+	
+	</div>
+</body>
+</html>
