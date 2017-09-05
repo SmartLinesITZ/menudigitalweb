@@ -3037,6 +3037,7 @@
 		background-attachment: scroll,							fixed;
 		background-color: #EEEEEE;
 		background-position: top left,						center center;
+		background-image: url("images/overlay.png"), url("images/img2.jpg");
 		background-repeat: repeat,							no-repeat;
 		background-size: auto,							cover;
 		color: #fff;
