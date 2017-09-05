@@ -2867,14 +2867,14 @@
 					}
 
 					#header nav > ul > li a:not(.button) {
-						color: #fff;
+						color: black;
 						display: inline-block;
 						text-decoration: none;
 						border: 0;
 					}
 
 						#header nav > ul > li a:not(.button).icon:before {
-							color: #999;
+							color: black;
 							margin-right: 0.5em;
 						}
 
@@ -3032,68 +3032,68 @@
 				z-index: 0;
 			}
 
-/* Banner1 */
-#banner1 {
+/* Banner */
+#banner {
 		background-attachment: scroll,							fixed;
-		background-color: #666;
-		background-image: url("images/overlay.png"), url("images/img2.jpg");
+		background-color: #EEEEEE;
 		background-position: top left,						center center;
+		background-image: url("images/overlay.png"), url("images/img2.jpg");
 		background-repeat: repeat,							no-repeat;
 		background-size: auto,							cover;
 		color: #fff;
 		padding: 12em 0 20em 0;
 		text-align: center;
 	}
-	
 
-		#banner1 :last-child {
+
+		#banner :last-child {
 			margin-bottom: 0;
 		}
 
-		#banner1 h2, #banner1 h3, #banner1 h4, #banner1 h5, #banner1 h6 {
+		#banner h2, #banner h3, #banner h4, #banner h5, #banner h6 {
 			color: #fff;
 		}
 
-		#banner1 h2 {
+		#banner h2 {
 			font-size: 3.5em;
 			line-height: 1em;
 			margin: 0 0 0.5em 0;
 			padding: 0;
 		}
 
-		#banner1 p {
+		#banner p {
 			font-size: 1.25em;
 			margin-bottom: 1.75em;
 		}
 
-		#banner1 input[type="submit"],
-		#banner1 input[type="reset"],
-		#banner1 input[type="button"],
-		#banner1 .button {
+		#banner input[type="submit"],
+		#banner input[type="reset"],
+		#banner input[type="button"],
+		#banner .button {
 			background-color: transparent;
 			box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.5);
 			color: #fff;
 			min-width: 12em;
 		}
 
-			#banner1 input[type="submit"]:hover,
-			#banner1 input[type="reset"]:hover,
-			#banner1 input[type="button"]:hover,
-			#banner1 .button:hover {
+			#banner input[type="submit"]:hover,
+			#banner input[type="reset"]:hover,
+			#banner input[type="button"]:hover,
+			#banner .button:hover {
 				background-color: rgba(255, 255, 255, 0.1);
 			}
 
-			#banner1 input[type="submit"]:active,
-			#banner1 input[type="reset"]:active,
-			#banner1 input[type="button"]:active,
-			#banner1 .button:active {
+			#banner input[type="submit"]:active,
+			#banner input[type="reset"]:active,
+			#banner input[type="button"]:active,
+			#banner .button:active {
 				background-color: rgba(255, 255, 255, 0.2);
 			}
 
-			#banner1 input[type="submit"].special,
-			#banner1 input[type="reset"].special,
-			#banner1 input[type="button"].special,
-			#banner1 .button.special {
+			#banner input[type="submit"].special,
+			#banner input[type="reset"].special,
+			#banner input[type="button"].special,
+			#banner .button.special {
 				background: #fff;
 				color: white;
 			}
@@ -3252,9 +3252,9 @@
 				font-size: 13pt;
 			}
 
-		/* Banner1 */
+		/* Banner */
 
-			#banner1 {
+			#banner {
 				padding: 10em 0 18em 0;
 			}
 
@@ -3276,13 +3276,13 @@
 				font-size: 1em;
 			}
 
-		/* Banner1 */
+		/* Banner */
 
-			#banner1 {
+			#banner {
 				background-attachment: scroll;
 			}
 
-				#banner1 h2 {
+				#banner h2 {
 					font-size: 3.5em;
 				}
 
@@ -3367,7 +3367,7 @@
 				display: none;
 			}
 
-		/* Banner1 */
+		/* Banner */
 
 		/* Off-Canvas Navigation */
 
@@ -3607,17 +3607,17 @@
 						margin-top: 2em;
 					}
 
-		/* Banner1 */
+		/* Banner */
 
-			#banner1 {
+			#banner {
 				padding: 4em 0;
 			}
 
-				#banner1 h2 {
+				#banner h2 {
 					font-size: 2.25em;
 				}
 
-				#banner1 p {
+				#banner p {
 					font-size: 1.25em;
 				}
 
@@ -3749,9 +3749,9 @@
 						margin-top: 3em;
 					}
 
-		/* Banner1 */
+		/* Banner */
 
-			#banner1 {
+			#banner {
 				padding: 5em 1em 4em 1em;
 			}
 
