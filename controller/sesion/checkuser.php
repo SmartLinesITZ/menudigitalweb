@@ -23,19 +23,12 @@
 			$_SESSION['seguridad'] = "ok";
 			$tipousuario=$rows['tipousuario'];
 		}
-		if($tipousuario=='adminapp'){
+		if($tipousuario=='restaurante'){
 			echo "<script type='text/javascript'>
 				alert('Bienvenido " .$_SESSION['login']. "');
 				</script>";
 				echo "<script type='text/javascript'>
-				window.location='../../view/admin/inicio.php'
-				</script>";
-		}else if($tipousuario=='adminrest'){
-			echo 	"<script type='text/javascript'>
-				alert('Bienvenido " .$_SESSION['login']. "');
-				</script>";
-				echo "<script type='text/javascript'>
-				window.location='../../view/rest/inicio.php'
+				window.location='../../view/inicio.php'
 				</script>";
 		}else{
 			echo 	"<script type='text/javascript'>
