@@ -1,3 +1,13 @@
+
+<?php
+include "../../model/conexion.php";
+$objConex = new Conexion();
+$link=$objConex->conectarse();
+$idrestaurante=$_REQUEST['idrestaurante'];
+$sql = mysql_query("SELECT * FROM restaurante where idrestaurante='$idrestaurante';" , $link) or die(mysql_error());
+$row=mysql_fetch_array($sql);
+?>
+<!DOCTYPE html>
 <html>
 <head>
   <title>Login</title>
@@ -35,17 +45,17 @@
         background-size: 100% 100%;">
         <section id="main" class="container 75%">
           <div class="box">
-            <h2 style="color: Green">Wing's Army</h2>
-            <h3 style="color: Green"><em>"THE BEST WINGS"</em></h3>
-            <p style="color: Green">#WingsArmy #Zacatecas THE BEST WINGS, Restaurant-Bar de ALITAS, HAMBURGUESAS Y MÁS DE 130 MARCAS DE CERVEZA DEL MUNDO :)</p>
-            <p style="color: Black">Calzada Francisco García Salinas Guadalupe (Zacatecas)</p>
-            <p style="color: Black">01 492 923 3405</p>
-            <p style="color: Black">Abierto ahora 13:00-1:00</p>
+            <h2 style="color: Green">Nombre de restaurte: <?php echo $rows['nombrerest'];?></h2>
+            <h3 style="color: Green">Slogan: <?php echo $rows['slogan'];?></h3>
+            <p style="color: Green">Descripcion: <?php echo $rows['descripcion'];?> </p>
+            <p style="color: Black">Ubicacion: <?php echo $rows['descripcion'];?> </p>
+            <p style="color: Black">Telefono:<?php echo $rows['telefono'];?></p>
+            <p style="color: Black">Horarios:<?php echo $rows['horarios'];?></p>
           </div>
           <div class="12u" style="text-align: right;" >
             <ul class="actions">
               <li>
-                <a class="button special " style="background: gray; display:scroll; position:fixed; bottom:50px; right:35px;" href="create.html">Editar Perfil</a>
+                <a class="button special " style="background: gray; display:scroll; position:fixed; bottom:50px; right:35px;" href="update.php">Editar Perfil</a>
               </li>
             </ul>
           </div>
