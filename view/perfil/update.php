@@ -34,7 +34,7 @@ $row=mysql_fetch_array($sql);
       </ul>
     </nav>
     </header>
-<form action="../../controller/perfil/editarperfil.php?idrestaurante=2" method="POST" enctype="ENCYPE">
+<form action="../../controller/perfil/editarperfil.php?idrestaurante=<?php echo $idrestaurante?>" method="POST" enctype="ENCYPE">
     <section id="banner">
       <img src="http://s3-us-west-1.amazonaws.com/facilite/V2/files/objeto/logo/80/59/691386804555/WINGS_ARMY_logo.jpg" alt=""
       style="height: 300px; width: 300px;

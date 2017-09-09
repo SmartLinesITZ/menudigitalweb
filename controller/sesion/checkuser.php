@@ -6,10 +6,9 @@
 	$link=$objConex->conectarse();
 	session_start();
 	$encrypt=md5($password);
-	$sql = mysql_query("SELECT * FROM user,usuarios WHERE username='" .$user. "'
-					   AND password='".$encrypt."' AND user.idusuario=usuarios.idusuario;" , $link) or die(mysql_error());
-	$row=mysql_num_rows($sql);
-	if ($row == 0){
+	$sql = mysql_query("SELECT * FROM user,usuarios,restaurante WHERE username='" .$user. "' AND password='".$encrypt."' AND user.idusuario=usuarios.idusuario AND restaurante.idrestaurante=usuarios.idrestaurante;" , $link) or die(mysql_error());
+	$numrow=mysql_num_rows($sql);
+	if ($numrow == 0){
 			echo 	"<script type='text/javascript'>
 					alert('Acceso incorrecto');
 					</script>";
@@ -20,6 +19,7 @@
 		while ($rows = mysql_fetch_array($sql)){
 			$_SESSION['login'] = $rows['username'];
 			$_SESSION['contra'] = $rows['password'];
+			$_SESSION['idrestaurante'] = $rows['idrestaurante'];
 			$_SESSION['seguridad'] = "ok";
 			$tipousuario=$rows['tipousuario'];
 		}

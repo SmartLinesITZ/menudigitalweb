@@ -1,4 +1,7 @@
 <?php
+session_start();
+$login = $_SESSION['login'];
+$seguridad = $_SESSION['seguridad'];
   $idrestaurante=$_REQUEST['idrestaurante'];
    $nombrerest=$_POST['nombrerest'];
     $slogan=$_POST['slogan'];
@@ -17,7 +20,7 @@ if (!$sql){
       alert('Datos Actualizados');
       </script>";
      echo  "<script type='text/javascript'>
-      window.location='../../view/perfil/read.php?idrestaurante=2'
+      window.location='../../view/perfil/read.php'
       </script>";
     mysql_close($link);
   }

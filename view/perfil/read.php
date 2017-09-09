@@ -1,9 +1,16 @@
 
 <?php
+session_start();
+$login = $_SESSION['login'];
+$seguridad = $_SESSION['seguridad'];
+if (!isset($seguridad)) {
+  echo "<SCRIPT TYPE='text/javascript'>alert('Sin acceso');</SCRIPT>";
+  header('Location:../../index.html');
+}
+$idrestaurante = $_SESSION['idrestaurante'];
 include "../../model/conexion.php";
 $objConex = new Conexion();
 $link=$objConex->conectarse();
-$idrestaurante=$_REQUEST['idrestaurante'];
 $sql = mysql_query("SELECT * FROM restaurante where idrestaurante='$idrestaurante';" , $link) or die(mysql_error());
 $row=mysql_fetch_array($sql);
 ?>
