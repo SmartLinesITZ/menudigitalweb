@@ -19,8 +19,14 @@
       </ul>
     </div>
   </nav>
+<?php
+include '../model/conexion.php';
 
-  <form class="" action="index.html" method="post">
+$objConex = new Conexion();
+$link=$objConex->conectarse();
+$sql = mysql_query("SELECT * FROM pedido;", $link) or die(mysql_error());
+echo '
+
     <div class="row">
       <div class="col s6  card-panel ">
         <h3 class="center-align">Pendientes</h3>
@@ -35,49 +41,24 @@
           </thead>
 
           <tbody>
-            <tr>
-              <td>Alvin</td>
-              <td>Pedido anticipado</td>
-              <td>$0.87</td>
-              <td>
-                <a  class="btn-floating waves-effect waves-light #2962ff blue accent-4"><i class="material-icons">visibility</i></a>
-                <a  class="btn-floating waves-effect waves-light green"><i class="material-icons">done</i></a>
-                <a  class="btn-floating waves-effect waves-light red"><i class="material-icons">cancel</i></a>
-              </td>
-            </tr>
-            <tr>
-              <td>Alvin</td>
-              <td>Pedido anticipado</td>
-              <td>$0.87</td>
-              <td>
-                <a  class="btn-floating waves-effect waves-light #2962ff blue accent-4"><i class="material-icons">visibility</i></a>
-                <a  class="btn-floating waves-effect waves-light green"><i class="material-icons">done</i></a>
-                <a  class="btn-floating waves-effect waves-light red"><i class="material-icons">cancel</i></a>
-              </td>
-            </tr>
-            <tr>
-              <td>Alvin</td>
-              <td>Pedido anticipado</td>
-              <td>$0.87</td>
-              <td>
-                <a  class="btn-floating waves-effect waves-light #2962ff blue accent-4"><i class="material-icons">visibility</i></a>
-                <a  class="btn-floating waves-effect waves-light green"><i class="material-icons">done</i></a>
-                <a  class="btn-floating waves-effect waves-light red"><i class="material-icons">cancel</i></a>
-              </td>
-            </tr>
-            <tr>
-              <td>Alvin</td>
-              <td>Pedido anticipado</td>
-              <td>$0.87</td>
-              <td>
-                <a  class="btn-floating waves-effect waves-light #2962ff blue accent-4"><i class="material-icons">visibility</i></a>
-                <a  class="btn-floating waves-effect waves-light green"><i class="material-icons">done</i></a>
-                <a  class="btn-floating waves-effect waves-light red"><i class="material-icons">cancel</i></a>
-              </td>
-            </tr>
+            <tr>';
+            while ($rows = mysql_fetch_array($sql)) {
+              echo '
 
+              <td>'.$rows['tiposervicio'].'</td>
+              <td>'.$rows['montototal'].'</td>
+              <td>
+                <a  class="btn-floating waves-effect waves-light #2962ff blue accent-4"><i class="material-icons">visibility</i></a>
+                <a  class="btn-floating waves-effect waves-light green"><i class="material-icons">done</i></a>
+                <a  class="btn-floating waves-effect waves-light red"><i class="material-icons">cancel</i></a>
+              </td>
+            </tr>';
+          }
+          echo '
           </tbody>
         </table class="centered striped bordered z-depth-3">
+';
+?>
       </div>
       <div class="col s6  card-panel ">
         <h3 class="center-align">Confirmados</h3>
