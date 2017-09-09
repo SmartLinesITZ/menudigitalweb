@@ -34,15 +34,14 @@ $row=mysql_fetch_array($sql);
       <h1><a href="../inicio.html">Clic And Eat</a> </h1>
       <nav id="nav">
         <ul>
-          <li><a href="../servicios.html"><i class="material-icons">headset_mic</i> Servicios</a></li>
-          <li><a href="../platillos/read.html"><i class="material-icons">restaurant_menu</i>Menu de platillos</a></li>
-          <li><a href="../pedidos.html"> <i class="material-icons">room_service</i> Pedidos</a></li>
-          <li><a href="../perfil.html"> <i class="material-icons">face</i>Perfil</a></li>
+          <li><a href="../servicios.php"><i class="material-icons">headset_mic</i> Servicios</a></li>
+          <li><a href="../platillos/read.php"><i class="material-icons">restaurant_menu</i>Menu de platillos</a></li>
+          <li><a href="../pedidos.php"> <i class="material-icons">room_service</i> Pedidos</a></li>
+          <li><a href="read.php"> <i class="material-icons">face</i>Perfil</a></li>
           <li><a href="../../index.html" class="button">Cerrar Sesión</a></li>
         </ul>
       </nav>
       </header>
-
       <section id="banner">
         <img src="http://s3-us-west-1.amazonaws.com/facilite/V2/files/objeto/logo/80/59/691386804555/WINGS_ARMY_logo.jpg" alt=""
         style="height: 300px; width: 300px;
