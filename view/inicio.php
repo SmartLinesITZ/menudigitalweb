@@ -1,45 +1,64 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <title>Login</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="../src/assets/css/main.css" />
-
-
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="../src/js/jquery.js"></script>
+	<script src="../src/js/materialize.min.js"></script>
+	<title>Inicio</title>
+	
 </head>
-<body class="landing">
-  <div id="page-wrapper">
-    <header id="header" class="alt">
-      <h1><a href="#">Clic And Eat</a> </h1>
-      <nav id="nav">
-        <ul>
-          <li><a href="servicios.php" ><i class="material-icons">headset_mic</i> Servicios</a></li>
-          <li><a href="platillos/read.php"><i class="material-icons">restaurant_menu</i>Menu de platillos</a></li>
-          <li><a href="pedidos.php"> <i class="material-icons">room_service</i> Pedidos</a></li>
-          <li><a href="perfil/read.php"> <i class="material-icons">face</i>Perfil</a></li>
-          <li><a href="../index.html" class="button"  style="background: gray;">Cerrar Sesión</a></li>
-        </ul>
-      </nav>
-    </header>
-    <section id="banner">
-      <section id="main" class="container 75%">
-        <div class="box">
-          <h2 style="color: black">Click And Eat</h2>
-            <a href="#"><span class="icon major  accent3"><i class="material-icons center" style="font-size: 70px; color: black;">headset_mic</i></span></a>
-            <a href="#"><span class="icon major  accent3"><i class="material-icons center" style="font-size: 70px; color: black;">restaurant_menu</i></span></a>
-            <a href="#"><span class="icon major  accent3"><i class="material-icons center" style="font-size: 70px; color: black;">room_service</i></span></a>
+<body>
+	<nav class="z-depth-2 #00695c teal darken-3" role="navigation">
+		<div class="nav-wrapper container">
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="servicios.php"><i class="material-icons left">headset_mic</i>Servicios</a></li>
+				<li><a href="platillos/read.php"><i class="material-icons left">restaurant_menu</i>Menu de platillos</a></li>
+				<li><a href="pedidos.php"><i class="material-icons left">room_service</i>Pedidos</a></li>
+				<li><a href="perfil/read.php"><i class="material-icons left">face</i>Perfil</a></li>
+				<li><a href="../index.html"><i class="material-icons right">directions_run</i>Cerrar sesión</a></li>
+			</ul>
+		</div>
+	</nav>
+	<br><br><br>
+	<div class="container">
+		<div class="row">
+			<div class="col m12">
+				<div class="card-panel #00695c teal darken-3"  id="contenedor">
+					<H3 align="center" class="white-text" id="botones">Bienvenido</H3>
+					<div class="row">
+						<div class="col m4">
+							<a href="servicios/servicios.php">
+								<div class="card-panel white center" id="botones">
+									<h4 class="black-text">Servicios</h4>
+									<i class="material-icons center" style="font-size: 100px; color: black;">headset_mic</i>
+								</div>
+							</a>
+						</div>
+						<div class="col m4">
+							<a href="menu/index.php">
+								<div class="card-panel white center" id="botones">
+									<h4 class="black-text">Menu</h4>
+									<i class="material-icons center" style="font-size: 100px; color: black;">restaurant_menu</i>
+								</div>
+							</a>
+						</div>
+						<div class="col m4" id="botones">
+							<a href="pedidos/index.php">
+								<div class="card-panel white center" id="botones">
+									<h4 class="black-text">Pedidos</h4>
+									<i class="material-icons center" style="font-size: 100px; color: black;">room_service</i>
+								</div>
+							</a>
+						</div>
 
+					</div>
+				</div>
+			</div>
+		</div>
 
-
-
-
-        </div>
-      </div>
-    </section>
-  </div>
-</body>
-</html>
+	</body>
+	<script type="text/javascript">
+	</script>
+	</html>
