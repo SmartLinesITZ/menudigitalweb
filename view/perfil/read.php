@@ -45,17 +45,17 @@ $row=mysql_fetch_array($sql);
         background-size: 100% 100%;">
         <section id="main" class="container 75%">
           <div class="box">
-            <h2 style="color: Green">Nombre de restaurte: <?php echo $rows['nombrerest'];?></h2>
-            <h3 style="color: Green">Slogan: <?php echo $rows['slogan'];?></h3>
-            <p style="color: Green">Descripcion: <?php echo $rows['descripcion'];?> </p>
-            <p style="color: Black">Ubicacion: <?php echo $rows['descripcion'];?> </p>
-            <p style="color: Black">Telefono:<?php echo $rows['telefono'];?></p>
-            <p style="color: Black">Horarios:<?php echo $rows['horarios'];?></p>
+            <h4 style="color: Green">Nombre de restaurte: <?php echo $row['nombrerest'];?></h4>
+            <h3 style="color: Green">Slogan: <?php echo $row['slogan'];?></h3>
+            <p style="color: Green">Descripcion: <?php echo $row['descripcion'];?> </p>
+            <p style="color: Black">Domicilio: <?php echo $row['domicilio'];?> </p>
+            <p style="color: Black">Telefono: <?php echo $row['telefono'];?></p>
+             <p style="color: Black">Horarios: <?php echo $row['horarios'];?></p>
           </div>
           <div class="12u" style="text-align: right;" >
             <ul class="actions">
               <li>
-                <a class="button special " style="background: gray; display:scroll; position:fixed; bottom:50px; right:35px;" href="update.php">Editar Perfil</a>
+                <a class="button special " style="background: gray; display:scroll; position:fixed; bottom:50px; right:35px;" href="update.php?idrestaurante=<?php echo $row['idrestaurante'];?>">Editar Perfil</a>
               </li>
             </ul>
           </div>
