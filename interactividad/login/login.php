@@ -8,18 +8,16 @@
       include "../conn/conexion.php";
       $objConex = new Conexion();
       $link=$objConex->conectarse();
-
       logeoUsuario($usuario,$password,$link);
       function logeoUsuario($usuario,$password,$link){
         $encrypt=md5($password);
         $response = array();
           $response2 = array();
       $query = mysql_query("SELECT * FROM user WHERE username='$usuario' and password='$encrypt'", $link);
-      $queryiduser = mysql_query("SELECT * FROM user WHERE username='$usuario' and password='$encrypt'", $link);
+      $queryiduser = mysql_query("SELECT user.idusuario,user.username,usuarios.correo,usuarios.telefono FROM user,usuarios WHERE username='$usuario' and password='$encrypt' AND user.idusuario=usuarios.idusuario AND usuarios.tipousuario='movil';", $link);
       if (!$query&&!$queryiduser){
         $row_array['mensaje']  = 'fail';
         array_push ($response, $row_array);
-
       }else{
         $rows = mysql_fetch_array($queryiduser);
         $numrows=mysql_num_rows($query);
@@ -28,6 +26,9 @@
           $row_array['mensaje']  = '1';
           $row_array['idusuario']  = $rows['idusuario'];
           $row_array['username']  = $rows['username'];
+          $row_array['telefono']  = $rows['telefono'];
+          $row_array['correo']  = $rows['correo'];
+
             array_push ($response, $row_array);
         }else{
           $row_array['mensaje']  = '0';

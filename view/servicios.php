@@ -26,6 +26,7 @@
 			</ul>
 		</div>
 	</nav>
+	<form class="" action="../controller/servicios/update.php" method="post">
 	<div class="container">
 		<div class="collection">
 			<ul class="collapsible" data-collapsible="accordion">
@@ -33,7 +34,7 @@
 					<div class="collapsible-header"><span class="badge"><div class="switch">
 						<label>
 							Off
-							<input type="checkbox">
+							<input type="checkbox" value="1" name="reservacion">
 							<span class="lever"></span>
 							On
 						</label>
@@ -44,7 +45,7 @@
 					<div class="collapsible-header"><span class="badge"><div class="switch">
 						<label>
 							Off
-							<input type="checkbox">
+							<input type="checkbox" value="1" name="pedioa">
 							<span class="lever"></span>
 							On
 						</label>
@@ -55,7 +56,7 @@
 					<div class="collapsible-header"><span class="badge"><div class="switch">
 						<label>
 							Off
-							<input type="checkbox">
+							<input type="checkbox" value="1" name="pediod">
 							<span class="lever"></span>
 							On
 						</label>
@@ -63,7 +64,10 @@
 					<div class="collapsible-body"><p>Descripcion d eun pedido a domicilio.</p></div>
 				</li>
 			</div>
+			<input type="submit" name="Guardar" value="Guardar" class="btn btn-succes s3 offset-s10">
 		</div>
+
+	</form>
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 	</body>

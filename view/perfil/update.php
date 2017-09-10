@@ -64,7 +64,7 @@ $row=mysql_fetch_array($sql);
             <br>
           </div>
           <div class="12u">
-            <input id="" name="domicilio" type="text"  value="<?php echo $row['domicilio'];?>" placeholder="Domicilio completo">
+            <input id="dir" name="domicilio" type="text"  value="<?php echo $row['domicilio'];?>" placeholder="Domicilio completo">
           </div>
           <div class="12u">
             ""
@@ -84,7 +84,19 @@ $row=mysql_fetch_array($sql);
         </div>
       </div>
 
+
     </section>
     </form>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+
+    <script type="text/javascript">
+    function initialize() {
+
+  var input = document.getElementById('dir');
+  var autocomplete = new google.maps.places.Autocomplete(input);
+  }
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 </body>
 </html>
