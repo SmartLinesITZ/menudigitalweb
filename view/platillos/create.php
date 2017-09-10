@@ -41,12 +41,12 @@ $seguridad = $_SESSION['seguridad'];
               <label for="nomcategoria">Nueva Categoria</label>
             </div>
              <div class="input-field col s1">
-            <button type="submit"></button>
+            <button type="submit">Guardar</button>
             </div>
             </div>
             </div>
             </form>
-  <form class="../../controller/platillos/altaplatillos.php"  method="post">
+  <form action="../../controller/platillos/altaplatillo.php"  method="post">
     <div class="row">
       <div class="col s12">
         <div class="col s6 offset-s3 card-panel ">
@@ -55,32 +55,44 @@ $seguridad = $_SESSION['seguridad'];
           <div class="row">
             <div class="col s6">
               <label>Cetgorira</label>
-              <select class="browser-default" name="categoria">
-                <option value="" disabled selected>Entra</option>
-                <option value="1">Ensalada</option>
-                <option value="2">Botana</option>
-                <option value="3">Platillo fuerte</option>
-              </select>
+              <select class="browser-default" name="nomcategoria">
+<option value="" selected="selected">Elegir</option>
+<?php   
+include "../../model/conexion.php";
+$objConex = new Conexion();
+$link=$objConex->conectarse();
+$sql = mysql_query("SELECT nomcategoria from categoria where categoria.idrestaurante='$idrestaurante';" , $link) or die(mysql_error());                
+  while ($rows = mysql_fetch_array($sql)){   
+  ?>
+      <option value="<?php echo $rows['nomcategoria']; ?>"><?php echo $rows['nomcategoria']; ?></option>
+    <?php
+  }
+    ?></select>
             </div> 
           </div>
           <div class="row">
             <div class="input-field col s6">
               <i class="material-icons prefix">restaurant</i>
-              <input name="nombreplatillo" id="nombre" type="text" class="validate">
+              <input name="nombreplatillo" type="text" class="validate">
               <label for="nombre">Nombre del platillos</label>
             </div>
             <div class="row">
               <div class="input-field col s6">
                 <i class="material-icons prefix">$</i>
-                <input id="precio" name="precio" type="text" class="validate">
+                <input name="precio" type="text" class="validate">
                 <label for="precio">Precio</label>
               </div>
               <div class="row">
                 <div class="input-field col s12">
                   <i class="material-icons prefix">short_text</i>
-                  <textarea id="textarea1" name="descripcion" class="materialize-textarea"></textarea>
+                  <textarea name="descripcion" class="materialize-textarea"></textarea>
                   <label for="textarea1">Descripcion</label>
                 </div>
+              </div>
+             <div class="input-field col s6">
+                <i class="material-icons prefix">add_a_photo</i>
+                <input name="imagen" id="imagen" type="file" class="validate">
+                <label for="imagen"></label>
               </div>
             </div>
             </div>
@@ -114,27 +126,74 @@ $seguridad = $_SESSION['seguridad'];
         </div>
       </div>
     </form>
-  <div class="row">
-      <div id="modal1" class="modal">
-      <div class="modal-content">
-       <div class="input-field col s5">
-                <i class="material-icons prefix">dehaze</i>
-                <input id="newcategoria" name="newcategoria" type="text" class="validate">
-                <label for="newcategoria">Nueva Categoria</label>
-              </div>
-      </div>
-      <div class="modal-footer">
-        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
-      </div>
-    </div>
+   <div class="row">
+    <div class="col-md-offset-1 col-md-10 col-xs-offset-1 col-xs-12 ">
+   <?php $i=1; while ($imagenes = @mysql_fetch_array($sql) ){ 
+   $ruta = "imagenes/" . $imagenes['imagen'];
+   ?>  
+  <div class="col-md-3 col-xs-10">
+    <img src="<?php echo $ruta;?>" style="width:100%" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
   </div>
+  <?php
+  $i++; 
+  }
+  ?>
+  </div>
+  </div>
+</div>
+ <div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+  <?php  $j=1; while ($imagenes = @mysql_fetch_array($sql2) ){
+   $ruta = "imagenes/" . $imagenes['imagen'];
+   ?>  
+    <div class="mySlides">
+      <div class="numbertext"><?php echo $j;?></div>
+      <img src="<?php echo $ruta;?>" style="width:100%" >
+    </div>
+  <?php
+  $j=$j+1;
+   }?>
+   </div>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+ </div>
 </body>
-<script type="text/javascript">
-  $( "#newcategoria" ).click(function() 
-{
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    $('.modal'.modal();
-    $('#modal1').modal('open');
-    });
-</script>
+<script>
+function openModal() {
+  document.getElementById('myModal').style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById('myModal').style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}</script>
   </html>

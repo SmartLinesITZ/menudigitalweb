@@ -1,3 +1,15 @@
+<?php
+session_start();
+$login = $_SESSION['login'];
+$seguridad = $_SESSION['seguridad'];
+  $idrestaurante=$_SESSION['idrestaurante'];
+include "../../model/conexion.php";
+$objConex = new Conexion();
+$link=$objConex->conectarse();
+$idplatillo=$_REQUEST['idplatillo'];
+$sql = mysql_query("SELECT categoria.nomcategoria,categoria.idcategoria,platillo.nombreplatillo,platillo.precio,platillo.descripcion FROM platillo,categoria where idplatillo='$idplatillo' AND categoria.idcategoria=platillo.idcategoria;" , $link) or die(mysql_error());
+$row=mysql_fetch_array($sql);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,44 +33,48 @@
       </ul>
     </div>
   </nav>
-  <form class="" action="index.html" method="post">
+  <form class="" action="../../controller/platillos/editplatillo.php?idplatillo=<?php echo $idplatillo?>" method="POST" enctype="ENCYPE">
     <div class="row">
       <div class="col s12">
         <div class="col s6 offset-s3 card-panel ">
-          <div class="col s12"><h3 class="center-align">Agregar Platillo</h3></div>
+          <div class="col s12"><h3 class="center-align">Editar Platillo</h3></div>
           <div class="row">
             <div class="col s6">
               <label>Cetgorira</label>
-              <select class="browser-default">
-                <option value="" disabled selected>Entra</option>
-                <option value="1">Ensalada</option>
-                <option value="2">Botana</option>
-                <option value="3">Platillo fuerte</option>
+              <select class="browser-default" name="idcategoria">
+                <option value="<?php echo $row['idcategoria'];?>"><?php echo $row['nomcategoria'];?></option>
+                <?php    
+    $cat = mysql_query("SELECT nomcategoria from categoria where categoria.idrestaurante='$idrestaurante';" , $link) or die(mysql_error());  
+  while ($rows = mysql_fetch_array($cat)){   ?>
+      <option value="<?php echo $rows['idcategoria']; ?>"><?php echo $rows['nomcategoria']; ?></option>
+    <?php
+  }
+    ?>
               </select>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s6">
               <i class="material-icons prefix">restaurant</i>
-              <input id="nombre" type="text" class="validate">
+              <input id="nombre" name="nombreplatillo" type="text" class="validate" value="<?php echo $row['nombreplatillo'];?>">
               <label for="nombre">Nombre del platillos</label>
             </div>
             <div class="row">
               <div class="input-field col s6">
                 <i class="material-icons prefix">$</i>
-                <input id="precio" type="text" class="validate">
+                <input id="precio" name="precio" type="text" class="validate" value="<?php echo $row['precio'];?>">
                 <label for="precio">Precio</label>
               </div>
               <div class="row">
                 <div class="input-field col s12">
                   <i class="material-icons prefix">short_text</i>
-                  <textarea id="textarea1" class="materialize-textarea"></textarea>
+                  <textarea id="textarea1" name="descripcion" class="materialize-textarea" ><?php echo $row['descripcion'];?></textarea>
                   <label for="textarea1">Descripcion</label>
                 </div>
               </div>
             </div>
             <div class=" col s1 offset-s10">
-              <a class="btn-floating btn-large  waves-effect waves-light blue" href="index.php"><i class="material-icons">save</i></a>
+              <button class="btn-floating btn-large  waves-effect waves-light blue" type="submit"><i class="material-icons">save</i></button>
             </div>
           </div>
         </div>

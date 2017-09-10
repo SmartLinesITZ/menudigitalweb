@@ -1,9 +1,26 @@
+<?php
+session_start();
+$login = $_SESSION['login'];
+$seguridad = $_SESSION['seguridad'];
+if (!isset($seguridad)) {
+  echo "<SCRIPT TYPE='text/javascript'>alert('Sin acceso');</SCRIPT>";
+  header('Location:../../index.html');
+}
+$idrestaurante = $_SESSION['idrestaurante'];
+include "../../model/conexion.php";
+$objConex = new Conexion();
+$link=$objConex->conectarse();
+$sql = mysql_query("SELECT platillo.nombreplatillo,platillo.precio,platillo.descripcion,platillo.idplatillo FROM platillo,categoria
+    WHERE categoria.idrestaurante = '$idrestaurante' AND categoria.idcategoria=platillo.idcategoria;" , $link) or die(mysql_error());
+$rows=mysql_fetch_array($sql);
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="../../src/js/eliminarplatillo.js"></script>
 	<title></title>
 	<style type="text/css">
 		#logo{
@@ -46,36 +63,19 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>Pollo Gurmet</td>
-									<td>El pollo a la naranja es un plato chino-estadounidense originario de Hunan</td>
-									<td>$75.00</td>
-									<td>
-										<a class="btn-floating waves-effect waves-light green" href="update.php"><i class="material-icons">edit</i></a>
-										<a  class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a>
-										<a  class="btn-floating waves-effect waves-light #2962ff blue accent-4"><i class="material-icons">visibility</i></a>
-									</td>
-								</tr>
-								<tr>
-									<td>Ensalada de nopales</td>
-									<td >La ensalada de nopal es una ensalada muy rica y nutritiva. El nopal es una fuente importante de fibra,</td>
-									<td>$55.00</td>
-									<td>
-										<a class="btn-floating waves-effect waves-light green" href="update.php"><i class="material-icons">edit</i></a>
-										<a  class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a>
-										<a  class="btn-floating waves-effect waves-light #2962ff blue accent-4"><i class="material-icons">visibility</i></a>
-									</td>
-								</tr>
-								<tr>
-									<td>Pay de nutella</td>
-									<td>Un pastel de Nutella es un postre hecho a base de requesón con Nuella y Fresas</td>
-									<td>$80.00</td>
-									<td>
-										<a class="btn-floating waves-effect waves-light green" href="update.php"><i class="material-icons">edit</i></a>
-										<a  class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a>
-										<a  class="btn-floating waves-effect waves-light #2962ff blue accent-4"><i class="material-icons">visibility</i></a>
-									</td>
-								</tr>
+								<?php
+   while ($rows = mysql_fetch_array($sql)){
+   ?>
+    <tr align="center">
+      <td><?php echo $rows['nombreplatillo']?></td>
+      <td><?php echo $rows['descripcion']?></td>
+      <td><?php echo $rows['precio']?></td>
+       <td align="center"><a  class="btn-floating btn-Tiny waves-effect waves-light blue" href="update.php?idplatillo=<?php echo $rows['idplatillo']?>"><i class="material-icons">edit</i></a>
+       <a  class="btn-floating btn-Tiny waves-effect waves-light red" href="../../controller/platillos/deleteplatillo.php?idplatillo=<?php echo $rows['idplatillo']?>" onclick="return elimplatillo();"><i class="material-icons">remove</i></a></td>
+      </tr>
+      <?php
+      }
+      ?>
 							</tbody>
 						</table>
 					</div>
