@@ -17,7 +17,7 @@
           selectTodo($link);
           break;
   }
-  function selectDesayuno($link){  
+  function selectDesayuno($link){
   $query = mysql_query("SELECT * FROM restaurante,servicios
     WHERE restaurante.idrestaurante = servicios.idrestaurante and servicios.desayuno=1", $link)or die(mysql_error());
   if (!$query){
@@ -30,7 +30,10 @@
         $row_array['horarios']  = $rows['horarios'];
         $row_array['logo']  = $rows['logo'];
         $row_array['descripcion']  = $rows['descripcion'];
-         array_push($response, $row_array);  
+        $row_array['lat']  = $rows['latitud'];
+        $row_array['lng']  = $rows['longitud'];
+
+         array_push($response, $row_array);
       }
       echo $json_string = json_encode($response);
       mysql_close();
@@ -50,7 +53,9 @@
         $row_array['horarios']  = $rows['horarios'];
         $row_array['logo']  = $rows['logo'];
         $row_array['descripcion']  = $rows['descripcion'];
-         array_push($response, $row_array); 
+        $row_array['lat']  = $rows['latitud'];
+        $row_array['lng']  = $rows['longitud'];
+         array_push($response, $row_array);
       }
       echo $json_string = json_encode($response);
       mysql_close();
@@ -72,7 +77,9 @@
         $row_array['horarios']  = $rows['horarios'];
         $row_array['logo']  = $rows['logo'];
         $row_array['descripcion']  = $rows['descripcion'];
-         array_push($response, $row_array); 
+        $row_array['lat']  = $rows['latitud'];
+        $row_array['lng']  = $rows['longitud'];
+         array_push($response, $row_array);
       }
       echo $json_string = json_encode($response);
       mysql_close();
@@ -91,7 +98,9 @@
         $row_array['horarios']  = $rows['horarios'];
         $row_array['logo']  = $rows['logo'];
         $row_array['descripcion']  = $rows['descripcion'];
-         array_push($response, $row_array); 
+        $row_array['lat']  = $rows['latitud'];
+        $row_array['lng']  = $rows['longitud'];
+         array_push($response, $row_array);
       }
       echo $json_string = json_encode($response);
       mysql_close();
