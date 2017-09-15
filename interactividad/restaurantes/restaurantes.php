@@ -1,5 +1,5 @@
 <?php
-$ruta="smartlines.hol.com/controller/perfil/imagenes/";
+$ruta="http://smartlines.hol.es/controller/perfil/imagenes/";
   include "../conn/conexion.php";
   $objConex = new Conexion();
   $opcion=$_REQUEST['opcion'];
