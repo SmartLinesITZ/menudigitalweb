@@ -39,7 +39,7 @@ $idrestaurante=$_SESSION['idrestaurante'];
     </div>
   </nav>
   <div id="formulario">
-    <form action="../../controller/platillos/altaplatillo.php"  method="post">
+  <form action="../../controller/platillos/altaplatillo.php"  method="POST" enctype="multipart/form-data">
       <div class="row col s12">
         <div class="col s6 offset-s3 card-panel ">
           <div class="col s12">
@@ -86,8 +86,7 @@ $idrestaurante=$_SESSION['idrestaurante'];
               <div class="row">
                 <div class="input-field col s9">
                   <i class="material-icons prefix">add_a_photo</i>
-                  <input name="imagen" id="imagen" type="file" class="validate">
-                  <label for="imagen"></label>
+                  <input name="foto" id="imagen" type="file" class="validate" class="filestyle" data-input="false">
                 </div>
                 <div class=" col s3">
                   <button class="waves-effect waves-light btn #00695c teal darken-3" type="submit">
@@ -96,7 +95,6 @@ $idrestaurante=$_SESSION['idrestaurante'];
                </div>
              </div>
            </div>
-
          </div>
        </div>
      </form>
