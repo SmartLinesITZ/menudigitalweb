@@ -21,12 +21,21 @@ $row=mysql_fetch_array($sql);
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="../../src/assets/css/main.css" />
-
-
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style type="text/css">
+    #imagen{
+     height: 300px; 
+     width: 300px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 80%;
+    background-size: 100% 100%
+    }
+    
+  </style>
 </head>
 <body class="landing">
   <div id="page-wrapper">
@@ -43,12 +52,28 @@ $row=mysql_fetch_array($sql);
       </nav>
       </header>
       <section id="banner">
-        <img src="http://s3-us-west-1.amazonaws.com/facilite/V2/files/objeto/logo/80/59/691386804555/WINGS_ARMY_logo.jpg" alt=""
-        style="height: 300px; width: 300px;
-        background-repeat: no-repeat;
-        background-position: 50%;
-        border-radius: 80%;
-        background-size: 100% 100%;">
+        <!--<img src="<?php echo $row['logo'];?>" alt="">-->
+        <tr>
+    <td><?php echo $rows['nomcategoria']; ?>
+    <div class="row">
+    <div class="col-md-offset-1 col-md-10 col-xs-offset-1 col-xs-12">
+   <?php $i=1; while ($imagenes = @mysql_fetch_array($sql) ){ 
+   $ruta = "imagenes/" . $imagenes['nombre'];
+   ?>  
+  <div class="col-md-4 col-xs-8">
+  <div class="row">
+      <img src="<?php echo $ruta;?>">
+    </div>
+  </div>
+</div>
+  </div>
+  <?php
+  $i++; 
+  }
+  ?>
+  </div>
+  </div>
+</div>
         <section id="main" class="container 75%">
           <div class="box">
             <h4 style="color: Green">Nombre de restaurte: <?php echo $row['nombrerest'];?></h4>
