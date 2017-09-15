@@ -70,7 +70,7 @@ $rows=mysql_fetch_array($sql);
       <td><?php echo $rows['nombreplatillo']?></td>
       <td><?php echo $rows['descripcion']?></td>
       <td><?php echo $rows['precio']?></td>
-       <td align="center"><a  class="btn-floating btn-Tiny waves-effect waves-light blue" href="update.php?idplatillo=<?php echo $rows['idplatillo']?>"><i class="material-icons">edit</i></a>
+       <td align="center"><a  class="btn-floating btn-Tiny waves-effect waves-light bkue" href="update.php?idplatillo=<?php echo $rows['idplatillo']?>"><i class="material-icons">edit</i></a>
        <a  class="btn-floating btn-Tiny waves-effect waves-light red" href="../../controller/platillos/deleteplatillo.php?idplatillo=<?php echo $rows['idplatillo']?>" onclick="return elimplatillo();"><i class="material-icons">remove</i></a></td>
       </tr>
       <?php

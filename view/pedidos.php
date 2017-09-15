@@ -66,7 +66,7 @@ echo '
               <td>
                 <a  class="btn-floating waves-effect waves-light #2962ff blue accent-4"href="../controller/pedido/view.php?idpedido='.$rows['idpedido'].'"><i class="material-icons">visibility</i></a>
                 <a  class="btn-floating waves-effect waves-light green"href="../controller/pedido/updateDoing.php?idpedido='.$rows['idpedido'].'"><i class="material-icons">done</i></a>
-                <a  class="btn-floating waves-effect waves-light red"href="../controller/pedido/delete.php?idpedido='.$rows['idpedido'].'"><i class="material-icons">cancel</i></a>
+                <a  class="btn-floating waves-effect waves-light red"href="../controller/pedido/delete.php?idpedido='.$rows['idpedido'].'" onclick="return elimplatillo();"><i class="material-icons">cancel</i></a>
               </td>
             </tr>';
           }

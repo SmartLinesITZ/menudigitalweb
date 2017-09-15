@@ -9,8 +9,9 @@ $objConex = new Conexion();
 $link=$objConex->conectarse();
 $sql = mysql_query("DELETE FROM pedido where idpedido='$idpedido'", $link) or die(mysql_error());
 if (!$sql){
-  die("<p>Fallo la actualización de datos: ".mysql_error()."</p>");
+  die("<p>Fallo la eliminación de datos: ".mysql_error()."</p>");
 }else{
+    echo "";
      echo  "<script type='text/javascript'>
       window.location='../../view/pedidos.php'
       </script>";

@@ -1,23 +1,24 @@
 <?php
+$ruta="smartlines.hol.com/controller/perfil/imagenes/";
   include "../conn/conexion.php";
   $objConex = new Conexion();
   $opcion=$_REQUEST['opcion'];
   $link=$objConex->conectarse();
   switch ($opcion) {
       case 1:
-          selectDesayuno($link);
+          selectDesayuno($link,$ruta);
           break;
       case 2:
-          selectComida($link);
+          selectComida($link,$ruta);
           break;
       case 3:
-          selectCena($link);
+          selectCena($link,$ruta);
           break;
       case 4:
-          selectTodo($link);
+          selectTodo($link,$ruta);
           break;
   }
-  function selectDesayuno($link){
+  function selectDesayuno($link,$ruta){
   $query = mysql_query("SELECT * FROM restaurante,servicios
     WHERE restaurante.idrestaurante = servicios.idrestaurante and servicios.desayuno=1", $link)or die(mysql_error());
   if (!$query){
@@ -28,7 +29,7 @@
         $row_array['idrestaurante']  = $rows['idrestaurante'];
         $row_array['nombrerest']  = $rows['nombrerest'];
         $row_array['horarios']  = $rows['horarios'];
-        $row_array['logo']  = $rows['logo'];
+        $row_array['logo']  = $ruta.$rows['logo'];
         $row_array['descripcion']  = $rows['descripcion'];
         $row_array['lat']  = $rows['latitud'];
         $row_array['lng']  = $rows['longitud'];
@@ -40,7 +41,7 @@
     }
   }
   //################################
-  function selectComida($link){
+  function selectComida($link,$ruta){
   $query = mysql_query("SELECT * FROM restaurante,servicios
     WHERE restaurante.idrestaurante = servicios.idrestaurante and servicios.comida=1", $link)or die(mysql_error());
   if (!$query){
@@ -51,7 +52,7 @@
         $row_array['idrestaurante']  = $rows['idrestaurante'];
         $row_array['nombrerest']  = $rows['nombrerest'];
         $row_array['horarios']  = $rows['horarios'];
-        $row_array['logo']  = $rows['logo'];
+        $row_array['logo']  = $ruta.$rows['logo'];
         $row_array['descripcion']  = $rows['descripcion'];
         $row_array['lat']  = $rows['latitud'];
         $row_array['lng']  = $rows['longitud'];
@@ -62,7 +63,7 @@
     }
   }
   //####################################################################
-  function selectCena($link){
+  function selectCena($link,$ruta){
   $query = mysql_query("SELECT * FROM restaurante,servicios
     WHERE restaurante.idrestaurante = servicios.idrestaurante and servicios.cena=1", $link)or die(mysql_error());
   if (!$query){
@@ -75,7 +76,7 @@
         $row_array['idrestaurante']  = $rows['idrestaurante'];
         $row_array['nombrerest']  = $rows['nombrerest'];
         $row_array['horarios']  = $rows['horarios'];
-        $row_array['logo']  = $rows['logo'];
+        $row_array['logo']  = $ruta.$rows['logo'];
         $row_array['descripcion']  = $rows['descripcion'];
         $row_array['lat']  = $rows['latitud'];
         $row_array['lng']  = $rows['longitud'];
@@ -86,7 +87,7 @@
     }
   }
   //############################################################################
-  function selectTodo($link){
+  function selectTodo($link,$ruta){
   $query = mysql_query("SELECT * FROM restaurante", $link)or die(mysql_error());
   if (!$query){
     $row_array['mensaje']  = 'fail';
@@ -96,7 +97,7 @@
         $row_array['idrestaurante']  = $rows['idrestaurante'];
         $row_array['nombrerest']  = $rows['nombrerest'];
         $row_array['horarios']  = $rows['horarios'];
-        $row_array['logo']  = $rows['logo'];
+        $row_array['logo']  = $ruta.$rows['logo'];
         $row_array['descripcion']  = $rows['descripcion'];
         $row_array['lat']  = $rows['latitud'];
         $row_array['lng']  = $rows['longitud'];

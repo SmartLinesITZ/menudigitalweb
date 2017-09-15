@@ -3,6 +3,7 @@ include "../conn/conexion.php";
 $objConex = new Conexion();
 $idrestaurante=$_REQUEST['idrest'];
 $link=$objConex->conectarse();
+$ruta="smartlines.hol.es/controller/platillos/imagenes/"
 selectPlatillos($idrestaurante,$link);
 function selectPlatillos($idrestaurante,$link){
   $querycat = mysql_query("SELECT * FROM categoria WHERE
@@ -22,7 +23,7 @@ function selectPlatillos($idrestaurante,$link){
       while($rows2 = mysql_fetch_array($queryplat)){
         $row_array2['idplatillo']  = $rows2['idplatillo'];
         $row_array2['nombreplatillo']  = $rows2['nombreplatillo'];
-        $row_array2['imagen']  = $rows2['imagen'];
+        $row_array2['imagen']  = $ruta.$rows2['imagen'];
         $row_array2['precio']  = $rows2['precio'];
         $row_array2['descripcion']  = $rows2['descripcion'];
         array_push ($response2, $row_array2);
