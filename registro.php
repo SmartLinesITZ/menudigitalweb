@@ -11,7 +11,7 @@ $link=$objConex->conectarse();
 registroRestaurante($nombreRestaurante,$correo,$telefono,$noCuenta,$nameuser,$password,$link);
 function registroRestaurante($nombreRestaurante,$correo,$telefono,$noCuenta,$nameuser,$password,$link){
 	$encrypt=md5($password);
-	$insertaRestaurante=mysql_query("INSERT INTO restaurante VALUES (null,'$nombreRestaurante','','','$telefono','','','','','')", $link) or die(mysql_error());
+	$insertaRestaurante=mysql_query("INSERT INTO restaurante VALUES (null,'$nombreRestaurante','','','$telefono','','logo2.png','','','')", $link) or die(mysql_error());
 	$query = mysql_query("SELECT * FROM restaurante WHERE nombrerest='$nombreRestaurante'", $link) or die(mysql_error());
 	$row=mysql_fetch_array($query);
 	$idRestaurante=$row['idrestaurante'];
