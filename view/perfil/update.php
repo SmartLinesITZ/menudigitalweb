@@ -61,28 +61,28 @@ $row=mysql_fetch_array($sql);
               </div>
             </div>
             <div class="input-field">
-              <input id="nombre"type="text" style="color: Green" value="<?php echo $row['nombrerest'];?>"/>
-              <label class="active"for="nombre">Nombre de restaurte:</label>
+              <input id="nombre" name="nombrerest" type="text" style="color: Green" value="<?php echo $row['nombrerest'];?>"/>
+              <label class="active" for="nombre">Nombre de restaurte:</label>
             </div>
             <div class="input-field">
-              <input id="slogan"type="text" style="color: Green" value="<?php echo $row['slogan'];?>"/>
-              <label class="active"for="slogan">Slogan:</label>
+              <input id="slogan" name="slogan" type="text" style="color: Green" value="<?php echo $row['slogan'];?>"/>
+              <label class="active" for="slogan">Slogan:</label>
             </div>
             <div class="input-field">
-              <input id="descripcion"type="text" style="color: Green" value="<?php echo $row['descripcion'];?>"/>
+              <input id="descripcion" name="descripcion" type="text" style="color: Green" value="<?php echo $row['descripcion'];?>"/>
               <label class="active"for="descripcion">Descripcion:</label>
             </div>
             <div class="input-field">
-              <input id="dir"type="text" style="color: Black" value="<?php echo $row['domicilio'];?>"/>
-              <label class="active"for="dir">Domicilio:</label>
+              <input id="dir" name="domicilio" type="text" style="color: Black" value="<?php echo $row['domicilio'];?>"/>
+              <label class="active" for="dir">Domicilio:</label>
             </div>
             <div class="input-field">
-              <input id="telefono"type="text" style="color: Black" value="<?php echo $row['telefono'];?>"/>
-              <label class="active"for="telefono">Telefono:</label>
+              <input id="telefono" name="telefono" type="text" style="color: Black" value="<?php echo $row['telefono'];?>"/>
+              <label class="active" for="telefono">Telefono:</label>
             </div>
             <div class="input-field">
-              <input id="horarios"type="text" style="color: Black" value="<?php echo $row['horarios'];?>"/>
-              <label class="active"for="horarios">Horarios:</label>
+              <input id="horarios" name="horarios" type="text" style="color: Black" value="<?php echo $row['horarios'];?>"/>
+              <label class="active" for="horarios">Horarios:</label>
             </div>
           </div>
           <div class="12u" style="text-align: right;" >
